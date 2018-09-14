@@ -1,0 +1,35 @@
+<title>Flask Autocomplete Demo</title>
+
+<script>
+$(document).ready(function() {
+// Initialize collapse button
+  $('.button-collapse').sideNav({
+      menuWidth: 240, // Default is 240
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
+});
+</script>
+
+<div class="navbar-fixed">
+<nav class="blue" role="navigation">
+  <div class="nav-wrapper container">
+  <a id="logo-container" href="/" class="brand-logo">A(uto) Complete Cluster</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="{{ url_for('autocomplete') }}" target="_blank">API</a></li>
+      <!--<li><a href="{{ url_for('autocomplete') }}">MaterialTags</a></li>-->
+
+      <!--<li><a href="http://stackoverflow.com/questions/34704997/jquery-autocomplete-in-flask" target="_blank">SO Post</a></li>-->
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+
+      <li><a href="{{ url_for('autocomplete') }}" target="_blank">API</a></li>
+      <!--<li><a href="{{ url_for('autocomplete') }}" target="_blank">MaterialTags</a></li>-->
+      <!--<li><a "href=http://stackoverflow.com/questions/34704997/jquery-autocomplete-in-flask" target="_blank">SO Post</a></li>-->
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+</div>
