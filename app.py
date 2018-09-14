@@ -38,14 +38,17 @@ def autocomplete():
         results = generate_n_text_from_seed(chain=chain_dict[id], in_text=str(search),max_char=100)
         return jsonify(matching_results=results)
     else:
-        return jsonify(note='use the query string to call the auto complete. For an example paste the example query into the query string after `http://<hostname>/autocomplete` in the url above',
-                       example='?q=what+a&char=the_donald')
+        return jsonify(note='use the query string to call the auto complete. \nFor an example paste the example query '+
+        'into the query string after `http://<hostname>/autocomplete` in the url above. \nYou can also utilize one of '+
+        'the characters denoted in the characters array to get a response from the different corpus.',
+                       example='?q=what+a&char=the_donald',
+                       characters=['the_donald', 'george', 'fred'])
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = SearchForm(request.form)
-    print(form)
+    # print(form)
     return render_template("search.html", form=form)
 
 if __name__ == '__main__':
